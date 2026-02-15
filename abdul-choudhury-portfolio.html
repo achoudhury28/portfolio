@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Choudhury | Computer Information Systems Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0a0e27;
+            --secondary-bg: #1a1f3a;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #0099ff;
+            --text-primary: #e8edf4;
+            --text-secondary: #a8b5c8;
+            --border-color: #2a3454;
+            --card-bg: #131729;
+            --gradient-1: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+            --gradient-2: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 255, 0.1) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: normal;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.2s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.4s;
+        }
+
+        .hero-degree {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.6s;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.8s;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 1s;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: var(--primary-bg);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .stat-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent-primary);
+            background: var(--secondary-bg);
+        }
+
+        .skill-category h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+            color: var(--accent-primary);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.75rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list li:hover {
+            color: var(--text-primary);
+            padding-left: 1rem;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-1);
+        }
+
+        .experience-item {
+            position: relative;
+            padding-left: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            box-shadow: 0 0 0 4px var(--primary-bg), 0 0 0 6px var(--accent-primary);
+        }
+
+        .experience-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateX(10px);
+        }
+
+        .experience-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .experience-company {
+            color: var(--accent-primary);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .experience-highlights {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .experience-highlights li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .experience-highlights li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15);
+        }
+
+        .project-header {
+            padding: 2rem;
+            background: var(--gradient-2);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .project-type {
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+        }
+
+        /* Courses Section */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            border-color: var(--accent-primary);
+            background: var(--secondary-bg);
+        }
+
+        .course-number {
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .course-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .course-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .course-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .course-link:hover {
+            gap: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-text {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .contact-method {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: block;
+        }
+
+        .contact-method:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-5px);
+            background: var(--gradient-2);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .contact-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: var(--secondary-bg);
+            margin: 5% auto;
+            padding: 4rem;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close {
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: var(--accent-primary);
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .modal-subtitle {
+            color: var(--accent-primary);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .modal-section {
+            margin-bottom: 3rem;
+        }
+
+        .modal-section h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+            font-weight: normal;
+        }
+
+        .modal-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .modal-section ul li {
+            padding: 0.75rem 0 0.75rem 2rem;
+            color: var(--text-secondary);
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .modal-section ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid,
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 2rem;
+                margin: 10% auto;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* prfile css*/
+        .hero-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap;
+        }
+
+        .hero-image img {
+        width: 320px;       /* Adjust size if needed */
+        height: auto;       /* Keeps original proportions */
+        border-radius: 10px; /* Slight rounded corners (optional) */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .hero-content {
+        max-width: 600px;
+        }
+        /* profile logo */
+        .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        }
+
+        .nav-profile-pic {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #0077ff;
+        }   
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-wrapper">
+            
+            <!-- Logo Section with Profile Image -->
+            <div class="logo-section">
+                <img src="/Users/abdulchoudhury/Desktop/Monroe University/Winter Semester 2026/Internship /Portfolio/logopic.jpg" alt="Abdul Choudhury" class="nav-profile-pic">
+                <div class="logo">Abdul Choudhury</div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-wrapper">
+    
+                <!-- Profile Image -->
+                <div class="hero-image">
+                    <img src="/Users/abdulchoudhury/Desktop/Monroe University/Winter Semester 2026/Internship /images/profile.jpg" alt="Abdul Choudhury Profile Picture">
+                </div>
+    
+                <!-- Hero Content -->
+                <div class="hero-content">
+                    <div class="hero-subtitle">Computer Information Systems</div>
+                    <h1>Abdul Choudhury</h1>
+                    <div class="hero-degree">
+                        Bachelor of Science in Computer Information Systems<br>
+                        Expected Graduation: April 2026
+                    </div>
+                    <p class="hero-description">
+                        I am a Computer Information Systems student specializing in backend development and data engineering, with hands-on experience building scalable RESTful APIs and optimizing database systems. Through my Java Backend internship at Revature and IT support role at Monroe University, I've developed strong technical skills in Java, Spring Boot, SQL, and Agile methodologies.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#projects" class="btn btn-secondary">View My Work</a>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Who I Am</div>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-content fade-in">
+                    <p>
+                        My journey into technology began with a fascination for how data drives decision-making in modern businesses. As a Computer Information Systems major at Monroe University, I've cultivated this interest into a focused career path toward data engineering and backend development.
+                    </p>
+                    <p>
+                        During my Java Backend internship at Revature, I gained invaluable experience developing RESTful APIs using Java and Spring Boot. I implemented test-driven development practices that reduced bug rates by ensuring comprehensive unit test coverage. This role taught me the importance of writing clean, maintainable code and collaborating effectively in a professional development environment.
+                    </p>
+                    <p>
+                        My second internship with the Monroe University IT Department provided a different but equally important perspective on technology infrastructure. This experience strengthened my problem-solving abilities and taught me how to communicate technical concepts clearly to non-technical users a skill that proves invaluable when collaborating across departments.
+                    </p>
+                    <p>
+                        I am particularly drawn to data engineering because it combines my strengths in programming, database management, and analytical thinking. I enjoy the challenge of designing efficient data pipelines, optimizing query performance, and ensuring data integrity across systems.
+                    </p>
+                </div>
+                <div class="stats-grid fade-in">
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Professional Internships</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Major Projects Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">April 2026</div>
+                        <div class="stat-label">Expected Graduation</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Data Engineer</div>
+                        <div class="stat-label">Career Goal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Professional Background</div>
+                <h2 class="section-title">Experience</h2>
+            </div>
+            <div class="experience-timeline">
+                <div class="experience-item fade-in">
+                    <div class="experience-card">
+                        <h3 class="experience-title">Java Backend Development Intern</h3>
+                        <div class="experience-company">Revature | Remote</div>
+                        <p class="experience-description">
+                            Developed production-ready RESTful APIs and backend services using modern Java frameworks while collaborating with cross-functional teams in an Agile environment.
+                        </p>
+                        <ul class="experience-highlights">
+                            <li>Developed RESTful APIs using Java and Spring Boot to support scalable web applications</li>
+                            <li>Applied test-driven development methodology to ensure code reliability and maintainability</li>
+                            <li>Collaborated with cross-functional teams using Agile workflows to deliver features on schedule</li>
+                            <li>Optimized backend performance through code refactoring and database query improvements</li>
+                            <li>Participated in code reviews and contributed to team knowledge-sharing sessions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item fade-in">
+                    <div class="experience-card">
+                        <h3 class="experience-title">IT Department Intern</h3>
+                        <div class="experience-company">Monroe University | On-Campus</div>
+                        <p class="experience-description">
+                            Provided comprehensive technical support for university technology infrastructure while developing strong problem-solving and communication skills.
+                        </p>
+                        <ul class="experience-highlights">
+                            <li>Provided technical support for classroom technologies including projectors and audio-visual equipment</li>
+                            <li>Troubleshot network connectivity issues to minimize downtime for faculty and students</li>
+                            <li>Assisted with hardware relocation projects during facility upgrades</li>
+                            <li>Documented technical procedures to improve support team efficiency</li>
+                            <li>Communicated technical solutions to non-technical stakeholders effectively</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">My Work</div>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">
+                    A collection of academic and professional projects demonstrating my technical capabilities and problem-solving approach.
+                </p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in" onclick="openProjectModal('smartshop')">
+                    <div class="project-header">
+                        <div class="project-type">Capstone Project</div>
+                        <h3 class="project-title">SmartShop E-Commerce Application</h3>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Full-stack e-commerce web application developed using Agile methodologies with comprehensive database design and project management documentation.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">ERD Design</span>
+                            <span class="tag">Agile</span>
+                            <span class="tag">Jira</span>
+                            <span class="tag">DFD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" onclick="openProjectModal('bestbuy')">
+                    <div class="project-header">
+                        <div class="project-type">Database Project</div>
+                        <h3 class="project-title">Best Buy Database System</h3>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Designed and normalized a comprehensive relational database applying normalization principles to ensure data integrity and optimal performance.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">SQL</span>
+                            <span class="tag">Database Design</span>
+                            <span class="tag">Normalization</span>
+                            <span class="tag">ERD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" onclick="openProjectModal('datacenter')">
+                    <div class="project-header">
+                        <div class="project-type">Project Management</div>
+                        <h3 class="project-title">Data Center Migration Project</h3>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Comprehensive project plan for enterprise data center migration including risk management, budget allocation, and work breakdown structures.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Project Charter</span>
+                            <span class="tag">Risk Register</span>
+                            <span class="tag">WBS</span>
+                            <span class="tag">Budgeting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" onclick="openProjectModal('platestacking')">
+                    <div class="project-header">
+                        <div class="project-type">Algorithm Development</div>
+                        <h3 class="project-title">Plate Stacking Algorithm</h3>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Python-based optimization algorithm solving the plate stacking problem with focus on efficiency and algorithmic thinking.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Algorithms</span>
+                            <span class="tag">Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" onclick="openProjectModal('carrental')">
+                    <div class="project-header">
+                        <div class="project-type">Application Development</div>
+                        <h3 class="project-title">Car Rental Application</h3>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Object-oriented application managing vehicle inventory and customer reservations with focus on clean code architecture.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">OOP</span>
+                            <span class="tag">Design Patterns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Academic Journey</div>
+                <h2 class="section-title">Relevant Coursework</h2>
+                <p class="section-description">
+                    Key courses that shaped my technical foundation and prepared me for a career in data engineering.
+                </p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card fade-in" onclick="openCourseModal('advprog')">
+                    <div class="course-number">Course 01</div>
+                    <h3 class="course-title">Advanced Programming</h3>
+                    <p class="course-description">
+                        Deep dive into object-oriented programming, data structures, algorithm design, and performance optimization.
+                    </p>
+                    <a class="course-link">Learn More →</a>
+                </div>
+
+                <div class="course-card fade-in" onclick="openCourseModal('dbms')">
+                    <div class="course-number">Course 02</div>
+                    <h3 class="course-title">Database Management Systems</h3>
+                    <p class="course-description">
+                        Comprehensive training in relational database theory, SQL programming, normalization, and query optimization.
+                    </p>
+                    <a class="course-link">Learn More →</a>
+                </div>
+
+                <div class="course-card fade-in" onclick="openCourseModal('projectmgmt')">
+                    <div class="course-number">Course 03</div>
+                    <h3 class="course-title">IT Project Management</h3>
+                    <p class="course-description">
+                        Methodologies and tools for successfully planning and executing technology projects using Agile and Waterfall frameworks.
+                    </p>
+                    <a class="course-link">Learn More →</a>
+                </div>
+
+                <div class="course-card fade-in" onclick="openCourseModal('seniorsem')">
+                    <div class="course-number">Course 04</div>
+                    <h3 class="course-title">Senior Seminar (SmartShop Capstone)</h3>
+                    <p class="course-description">
+                        Comprehensive capstone project applying cumulative knowledge to develop a full-stack e-commerce application.
+                    </p>
+                    <a class="course-link">Learn More →</a>
+                </div>
+
+                <div class="course-card fade-in" onclick="openCourseModal('internship')">
+                    <div class="course-number">Course 05</div>
+                    <h3 class="course-title">Internship Seminar</h3>
+                    <p class="course-description">
+                        Structured reflection on professional internship experiences connecting practical work to academic learning.
+                    </p>
+                    <a class="course-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Technical Expertise</div>
+                <h2 class="section-title">Skills & Technologies</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>Java - Object-oriented programming, Spring Boot, RESTful APIs</li>
+                        <li>Python - Algorithm implementation, scripting, automation</li>
+                        <li>SQL - Advanced querying, joins, aggregations, optimization</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Frameworks & Tools</h3>
+                    <ul class="skill-list">
+                        <li>Spring Boot - API development, dependency injection</li>
+                        <li>Git - Version control, branching, collaboration</li>
+                        <li>Jira - Agile project management, sprint planning</li>
+                        <li>Maven - Build automation, dependency management</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Database & Data Skills</h3>
+                    <ul class="skill-list">
+                        <li>Database Design - ERD modeling, schema optimization</li>
+                        <li>Normalization - 1NF through BCNF implementation</li>
+                        <li>Query Optimization - Performance tuning, indexing</li>
+                        <li>Data Modeling - Business requirements translation</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Project Management</h3>
+                    <ul class="skill-list">
+                        <li>Agile/Scrum - Sprint planning, retrospectives</li>
+                        <li>Risk Management - Identification and mitigation</li>
+                        <li>Budget Planning - Cost estimation, allocation</li>
+                        <li>Work Breakdown Structures - Task decomposition</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Analytical Problem-Solving</li>
+                        <li>Team Collaboration</li>
+                        <li>Technical Communication</li>
+                        <li>Adaptability & Learning</li>
+                        <li>Time Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content fade-in">
+                <div class="section-label">Get In Touch</div>
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="contact-text">
+                    I'm actively seeking full-time opportunities in Data Engineering and Backend Development starting in Spring 2026. If you're looking for a dedicated developer with strong database skills, hands-on API development experience, and a passion for building efficient data systems, I'd welcome the opportunity to discuss how I can contribute to your team.
+                </p>
+                <div class="cta-buttons">
+                    <a href="mailto:your.email@example.com" class="btn btn-primary">Send Email</a>
+                </div>
+            </div>
+            <div class="contact-methods">
+                <a href="mailto:your.email@example.com" class="contact-method fade-in">
+                    <span class="contact-icon">📧</span>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">your.email@example.com</div>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-method fade-in">
+                    <span class="contact-icon">💼</span>
+                    <div class="contact-label">LinkedIn</div>
+                    <div class="contact-value">linkedin.com/in/yourprofile</div>
+                </a>
+                <a href="https://github.com/yourprofile" target="_blank" class="contact-method fade-in">
+                    <span class="contact-icon">💻</span>
+                    <div class="contact-label">GitHub</div>
+                    <div class="contact-value">github.com/yourprofile</div>
+                </a>
+                <a href="tel:+1234567890" class="contact-method fade-in">
+                    <span class="contact-icon">📱</span>
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">(123) 456-7890</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Abdul M. Choudhury. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Course Modals -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('courseModal')">&times;</span>
+            <div id="courseModalContent"></div>
+        </div>
+    </div>
+
+    <!-- Project Modals -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('projectModal')">&times;</span>
+            <div id="projectModalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Course modal content
+        const courseContent = {
+            advprog: {
+                title: "Advanced Programming",
+                subtitle: "Course 01",
+                description: "Advanced Programming deepened my understanding of object-oriented programming concepts, data structures, and algorithm design. The course emphasized writing efficient, maintainable code using Java and Python, with a focus on problem-solving techniques applicable to real-world software development.",
+                reflections: [
+                    "This course fundamentally transformed how I approach software development. Before Advanced Programming, I understood basic syntax and could write functional code, but I lacked the theoretical foundation to make informed decisions about algorithm selection and data structure implementation. Learning about time and space complexity changed my perspective. I now evaluate solutions not just by whether they work, but by how efficiently they work at scale.",
+                    "One of the most challenging yet rewarding aspects was implementing classic algorithms from scratch. Rather than relying on built-in library functions, I built sorting algorithms, search trees, and graph traversal methods manually. This deep dive into how these algorithms function under the hood gave me confidence to debug complex issues and optimize existing code.",
+                    "The course also emphasized clean code principles and maintainability. I learned to write self-documenting code with meaningful variable names, proper commenting, and logical organization. These practices became second nature during the SmartShop capstone project, where multiple team members needed to understand and modify each other's code.",
+                    "Beyond technical skills, Advanced Programming taught me systematic debugging and testing strategies. I learned to write unit tests before implementation, following test-driven development principles that I later applied during my Revature internship. This approach of defining expected behavior first, then writing code to meet those expectations, significantly reduced bugs and improved code reliability."
+                ],
+                projects: [
+                    "Plate Stacking Optimization Algorithm (Python) - Developed efficient solution to minimize moves",
+                    "Binary Search Tree Implementation - Built self-balancing tree structure",
+                    "Graph Pathfinding Application - Implemented Dijkstra's algorithm",
+                    "Sorting Algorithm Comparisons - Benchmarked performance on various datasets",
+                    "Custom HashMap Implementation - Created hash table with collision resolution"
+                ],
+                skills: [
+                    "Algorithm design and complexity analysis (Big O notation)",
+                    "Advanced data structures (trees, graphs, hash tables, heaps)",
+                    "Object-oriented design patterns",
+                    "Test-driven development and unit testing",
+                    "Code optimization and performance tuning"
+                ],
+                career: "Advanced Programming established the technical foundation essential for data engineering. Data engineers work with massive datasets where algorithm efficiency directly impacts pipeline performance. Understanding how to choose the right data structure for specific use cases is critical when designing ETL processes. The algorithmic thinking I developed enables me to optimize data transformation scripts, reduce processing time, and handle edge cases gracefully."
+            },
+            dbms: {
+                title: "Database Management Systems",
+                subtitle: "Course 02",
+                description: "Database Management Systems provided comprehensive training in relational database theory, SQL programming, and database design principles. The course covered normalization techniques, entity-relationship modeling, transaction management, and query optimization.",
+                reflections: [
+                    "This course profoundly shaped my understanding of how data should be structured, stored, and retrieved efficiently. Before taking Database Management Systems, I viewed databases simply as storage mechanisms. The course revealed that thoughtful database design is an art form that balances normalization principles with performance considerations.",
+                    "The Best Buy Database Project was particularly transformative. I started with an unnormalized dataset containing significant redundancy and systematically applied first, second, and third normal forms to eliminate anomalies. Witnessing how normalization reduced data duplication while maintaining referential integrity demonstrated the elegance of relational database theory.",
+                    "Writing complex SQL queries challenged me to think procedurally about data retrieval. I progressed from simple SELECT statements to sophisticated queries involving multiple joins, subqueries, aggregate functions, and window functions. The ability to extract exactly the data needed through efficient queries is surprisingly empowering.",
+                    "Transaction management and concurrency control concepts were initially abstract but became concrete when I understood their implications for data integrity. Learning about ACID properties, isolation levels, and locking mechanisms prepared me to think critically about how concurrent users interact with databases."
+                ],
+                projects: [
+                    "Best Buy Database Normalization Project - Transformed dataset through 1NF, 2NF, and 3NF",
+                    "SmartShop E-Commerce ERD Design - Comprehensive entity-relationship diagram",
+                    "SQL Query Optimization Challenge - Improved performance through indexing",
+                    "Database Transaction Simulation - Demonstrated isolation levels and deadlock resolution",
+                    "Stored Procedure Development - Created reusable database procedures"
+                ],
+                skills: [
+                    "Relational database design and ERD modeling",
+                    "Database normalization (1NF, 2NF, 3NF, BCNF)",
+                    "Advanced SQL programming (joins, subqueries, aggregations)",
+                    "Query performance optimization and indexing",
+                    "Transaction management and concurrency control"
+                ],
+                career: "Database expertise is fundamental to data engineering. Data engineers design and maintain the databases that power analytics platforms, ensuring data is structured for efficient querying and analysis. The normalization skills I developed help me create schemas that minimize redundancy while supporting complex analytical queries. My SQL proficiency enables me to write transformation logic for ETL pipelines and validate data quality."
+            },
+            projectmgmt: {
+                title: "IT Project Management",
+                subtitle: "Course 03",
+                description: "IT Project Management introduced methodologies, tools, and best practices for successfully planning and executing technology projects. The course covered project lifecycles, scope management, risk assessment, budgeting, scheduling, and stakeholder communication using frameworks like Agile and Waterfall.",
+                reflections: [
+                    "This course fundamentally changed how I approach any complex endeavor. Project management isn't just about Gantt charts and budgets—it's about understanding human dynamics, anticipating risks, and maintaining focus on delivering value. The Data Center Migration Project taught me that successful projects begin with crystal-clear objectives and well-defined success criteria.",
+                    "Creating a comprehensive risk register was an eye-opening exercise in proactive thinking. Rather than reacting to problems as they emerge, effective project managers identify potential issues before they occur and develop mitigation strategies. This mindset shift has influenced how I approach software development.",
+                    "Learning Agile methodologies provided practical frameworks for managing uncertainty and changing requirements. Traditional Waterfall approaches work well when requirements are stable, but software projects rarely have that luxury. Agile's iterative approach mirrors how modern software development actually occurs.",
+                    "Budget management and resource allocation taught me to think beyond technical feasibility to economic viability. The most elegant technical solution isn't valuable if it exceeds budget or timeline constraints. Understanding the relationship between scope, time, and cost helps me have informed discussions about tradeoffs with stakeholders."
+                ],
+                projects: [
+                    "Data Center Migration Project - Created project charter, risk register, budget plan",
+                    "SmartShop Agile Sprint Planning - Managed sprint cycles using Jira",
+                    "Project Risk Assessment Exercise - Identified and quantified risks",
+                    "Resource Allocation Simulation - Optimized team assignments",
+                    "Stakeholder Communication Plan - Developed communication strategy"
+                ],
+                skills: [
+                    "Agile and Scrum methodologies",
+                    "Project charter and scope definition",
+                    "Risk identification and mitigation planning",
+                    "Budget development and cost estimation",
+                    "Work breakdown structures and task scheduling"
+                ],
+                career: "Data engineering projects are inherently complex, involving multiple teams, systems, and stakeholders. The project management skills I developed enable me to lead data pipeline implementations from conception through deployment. Understanding Agile helps me work effectively in modern development teams where requirements evolve as business needs change."
+            },
+            seniorsem: {
+                title: "Senior Seminar (SmartShop Capstone)",
+                subtitle: "Course 04",
+                description: "Senior Seminar was the capstone course where students applied cumulative knowledge to a comprehensive real-world project. My team developed SmartShop, an e-commerce web application, following Agile methodologies from conception through deployment. The course required full project lifecycle execution including requirements gathering, system design, development, testing, and presentation.",
+                reflections: [
+                    "The SmartShop capstone was the most intensive and rewarding experience of my academic career. It transformed theoretical knowledge from individual courses into practical skills required for professional software development. Working on a team to build a complete application from scratch exposed me to challenges that can't be replicated in traditional coursework.",
+                    "My primary responsibility was database design and backend architecture. I created the entity-relationship diagram modeling customers, products, inventory, orders, and payment processing. This required understanding not just database theory but business logic—how orders relate to inventory, how to handle partial shipments, how to maintain price history for accurate invoicing.",
+                    "Managing the project through Jira sprints taught me the realities of Agile development. Sprint planning sessions required negotiating which features were feasible within a two-week iteration. Daily standups kept the team synchronized but revealed how easily miscommunication can derail progress.",
+                    "The budget planning component added a business dimension often missing from purely technical projects. We researched hosting costs, domain registration, and third-party API expenses to create realistic budget projections. These considerations are crucial for data engineers who make infrastructure decisions affecting organizational budgets."
+                ],
+                projects: [
+                    "SmartShop E-Commerce Platform - Full-stack web application",
+                    "Comprehensive ERD and DFD - System architecture documentation",
+                    "Jira Sprint Management - Managed six two-week sprints",
+                    "Budget and Resource Planning - Developed cost projections",
+                    "System Testing and Quality Assurance - Created comprehensive test plans"
+                ],
+                skills: [
+                    "End-to-end application development",
+                    "Team collaboration and version control (Git)",
+                    "Agile sprint planning and execution",
+                    "System design and architectural decision-making",
+                    "Integration of frontend and backend components"
+                ],
+                career: "The capstone experience directly mirrors professional data engineering work. Data pipeline projects require coordinating with analysts who consume data, source system owners who provide it, and infrastructure teams who host it. The collaborative skills I developed are essential when building data platforms serving multiple stakeholders."
+            },
+            internship: {
+                title: "Internship Seminar",
+                subtitle: "Course 05",
+                description: "Internship Seminar provided structured reflection on internship experiences, connecting practical work to academic learning. The course required students to analyze their professional roles, document skills developed, and articulate how real-world experience informed career goals.",
+                reflections: [
+                    "Internship Seminar provided the framework to extract maximum learning from my two internship experiences. While the internships themselves provided hands-on experience, the seminar's reflective component helped me recognize patterns, identify growth areas, and articulate transferable skills.",
+                    "My Revature Java Backend internship introduced me to professional software development practices that weren't fully captured in classroom settings. Working with an experienced development team showed me how code reviews function in practice—not as criticism but as collaborative learning opportunities.",
+                    "Applying test-driven development in a professional context differed significantly from academic exercises. In school, tests often felt like an afterthought. At Revature, I witnessed how comprehensive test suites enable confident refactoring and prevent regression bugs.",
+                    "The Monroe University IT internship provided complementary skills often overlooked in computer science education—customer service, troubleshooting under pressure, and communication with non-technical users. These soft skills have enhanced my effectiveness in team settings."
+                ],
+                projects: [
+                    "Professional Development Portfolio - Documented internship responsibilities",
+                    "Skill Gap Analysis - Identified areas for growth",
+                    "Career Reflection Paper - Articulated how experiences influenced goals",
+                    "Technical Presentation - Presented API development practices to peers",
+                    "Industry Best Practices Research - Compared experiences with standards"
+                ],
+                skills: [
+                    "Professional communication and workplace etiquette",
+                    "Test-driven development methodology",
+                    "Code review participation and feedback",
+                    "Technical troubleshooting and support",
+                    "Time management and prioritization"
+                ],
+                career: "Both internships validated my interest in backend development and data engineering while revealing the breadth of skills required beyond pure programming. The backend development experience confirmed my aptitude for building APIs and working with data flows between systems. The IT support experience taught me to consider the end user perspective, which is crucial when designing data pipelines."
+            }
+        };
+
+        // Project modal content
+        const projectContent = {
+            smartshop: {
+                title: "SmartShop E-Commerce Application",
+                type: "Capstone Project",
+                description: "SmartShop is a comprehensive e-commerce web application developed as my senior capstone project. The project involved a complete software development lifecycle from initial requirements gathering through deployment, following Agile methodologies and industry best practices.",
+                details: [
+                    "Led database architecture design creating comprehensive ERD and DFD models that accurately represented complex business relationships including customer management, product catalog, inventory tracking, order processing, and payment systems.",
+                    "Managed Agile development through Jira, planning and executing six two-week sprints with detailed user stories, acceptance criteria, and velocity tracking to ensure on-time delivery.",
+                    "Developed realistic budget projections including hosting infrastructure, domain registration, SSL certificates, third-party API integrations, and development tool costs.",
+                    "Collaborated with team members on frontend integration, ensuring clean API contracts and proper separation of concerns between application layers.",
+                    "Implemented comprehensive testing strategies including unit tests, integration tests, and end-to-end user acceptance testing."
+                ],
+                technologies: ["Java", "Spring Boot", "SQL", "ERD Modeling", "DFD", "Jira", "Agile/Scrum", "Git"],
+                impact: "This project demonstrated my ability to deliver production-quality software while managing complexity, coordinating with team members, and balancing technical excellence with business constraints. The experience directly prepared me for professional data engineering roles requiring similar collaboration and technical depth."
+            },
+            bestbuy: {
+                title: "Best Buy Database System",
+                type: "Database Project",
+                description: "A comprehensive database design project focused on applying normalization principles to transform an unnormalized dataset into a well-structured relational database that ensures data integrity and optimal query performance.",
+                details: [
+                    "Analyzed initial unnormalized dataset containing significant data redundancy, update anomalies, and deletion anomalies that compromised data integrity.",
+                    "Applied First Normal Form (1NF) by eliminating repeating groups and ensuring atomic values in all columns.",
+                    "Achieved Second Normal Form (2NF) by removing partial dependencies and ensuring all non-key attributes fully depend on primary keys.",
+                    "Implemented Third Normal Form (3NF) by eliminating transitive dependencies, resulting in a clean schema with minimal redundancy.",
+                    "Created complex SQL queries demonstrating the improved query performance and data integrity of the normalized design."
+                ],
+                technologies: ["SQL", "Database Design", "Normalization", "ERD Modeling", "Query Optimization"],
+                impact: "This project solidified my understanding of relational database theory and normalization principles that are essential for designing scalable data systems. The skills developed directly apply to data engineering work where proper schema design is critical for analytical performance."
+            },
+            datacenter: {
+                title: "Data Center Migration Project",
+                type: "Project Management",
+                description: "Enterprise-level project planning exercise for a hypothetical data center migration, requiring comprehensive documentation of project charter, risk management, budget allocation, and detailed work breakdown structures.",
+                details: [
+                    "Developed comprehensive project charter defining clear scope, objectives, success criteria, stakeholder identification, and project governance structure.",
+                    "Created detailed risk register identifying 20+ potential risks across categories including technical, organizational, financial, and external risks with corresponding mitigation strategies.",
+                    "Designed work breakdown structure (WBS) decomposing the complex migration into manageable tasks with realistic time estimates and dependency mapping.",
+                    "Developed budget allocation plan accounting for hardware procurement, software licensing, personnel costs, downtime expenses, and contingency reserves.",
+                    "Established communication plan defining stakeholder engagement strategies, reporting cadences, and escalation procedures."
+                ],
+                technologies: ["Project Charter", "Risk Management", "WBS", "Budget Planning", "Stakeholder Management"],
+                impact: "This project taught me to think holistically about technology initiatives beyond just the technical implementation. Understanding project management fundamentals enables me to contribute effectively to large-scale data infrastructure projects where coordination and planning are as important as technical execution."
+            },
+            platestacking: {
+                title: "Plate Stacking Algorithm",
+                type: "Algorithm Development",
+                description: "Python-based optimization algorithm designed to solve the plate stacking problem, minimizing the number of moves required to rearrange stacked plates into a desired configuration.",
+                details: [
+                    "Analyzed the problem space to understand constraints and develop an efficient algorithmic approach.",
+                    "Implemented solution using Python with focus on algorithmic efficiency and clean code structure.",
+                    "Applied algorithmic thinking to break down complex problem into manageable sub-problems.",
+                    "Optimized solution to minimize computational complexity and improve performance on large datasets.",
+                    "Demonstrated understanding of algorithm design principles and problem-solving methodologies."
+                ],
+                technologies: ["Python", "Algorithm Design", "Optimization", "Problem Solving"],
+                impact: "This project strengthened my algorithmic thinking and problem-solving abilities that are crucial for data engineering. When building data pipelines, similar optimization thinking is required to process large datasets efficiently."
+            },
+            carrental: {
+                title: "Car Rental Application",
+                type: "Application Development",
+                description: "Object-oriented application managing vehicle inventory, customer information, and reservation processing with emphasis on clean architecture and design patterns.",
+                details: [
+                    "Designed class hierarchy applying object-oriented principles including encapsulation, inheritance, and polymorphism.",
+                    "Implemented reservation system managing vehicle availability, customer bookings, and rental periods.",
+                    "Applied design patterns to create maintainable, extensible codebase that could accommodate future requirements.",
+                    "Developed user interface for interacting with the system and managing business operations.",
+                    "Created comprehensive documentation explaining system architecture and usage."
+                ],
+                technologies: ["Java", "Object-Oriented Programming", "Design Patterns", "Software Architecture"],
+                impact: "This project reinforced object-oriented design principles that inform how I structure code in professional settings. Clean architecture and design patterns are equally important in data engineering when building reusable pipeline components."
+            }
+        };
+
+        function openCourseModal(courseId) {
+            const modal = document.getElementById('courseModal');
+            const content = document.getElementById('courseModalContent');
+            const course = courseContent[courseId];
+
+            content.innerHTML = `
+                <div class="modal-header">
+                    <div class="modal-subtitle">${course.subtitle}</div>
+                    <h2 class="modal-title">${course.title}</h2>
+                </div>
+                <div class="modal-section">
+                    <h3>Course Description</h3>
+                    <p>${course.description}</p>
+                </div>
+                <div class="modal-section">
+                    <h3>Professional Reflection</h3>
+                    ${course.reflections.map(r => `<p>${r}</p>`).join('')}
+                </div>
+                <div class="modal-section">
+                    <h3>Sample Projects</h3>
+                    <ul>
+                        ${course.projects.map(p => `<li>${p}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3>Skills Developed</h3>
+                    <ul>
+                        ${course.skills.map(s => `<li>${s}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3>Career Connection</h3>
+                    <p>${course.career}</p>
+                </div>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        function openProjectModal(projectId) {
+            const modal = document.getElementById('projectModal');
+            const content = document.getElementById('projectModalContent');
+            const project = projectContent[projectId];
+
+            content.innerHTML = `
+                <div class="modal-header">
+                    <div class="modal-subtitle">${project.type}</div>
+                    <h2 class="modal-title">${project.title}</h2>
+                </div>
+                <div class="modal-section">
+                    <h3>Overview</h3>
+                    <p>${project.description}</p>
+                </div>
+                <div class="modal-section">
+                    <h3>Key Accomplishments</h3>
+                    <ul>
+                        ${project.details.map(d => `<li>${d}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3>Technologies Used</h3>
+                    <div class="project-tags">
+                        ${project.technologies.map(t => `<span class="tag">${t}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h3>Impact & Learning</h3>
+                    <p>${project.impact}</p>
+                </div>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
