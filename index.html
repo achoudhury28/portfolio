@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdul Choudhury | Computer Information Systems Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Work+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-bg: #0a0e27;
@@ -119,8 +122,17 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.3; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.3;
+            }
         }
 
         .container {
@@ -151,6 +163,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -660,6 +673,7 @@
                 opacity: 0;
                 transform: translateY(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -786,55 +800,133 @@
             opacity: 1;
             transform: translateY(0);
         }
+
         /* prfile css*/
         .hero-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 50px;
-        flex-wrap: wrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
         }
 
         .hero-image img {
-        width: 320px;       /* Adjust size if needed */
-        height: auto;       /* Keeps original proportions */
-        border-radius: 10px; /* Slight rounded corners (optional) */
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 320px;
+            /* Adjust size if needed */
+            height: auto;
+            /* Keeps original proportions */
+            border-radius: 10px;
+            /* Slight rounded corners (optional) */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .hero-content {
-        max-width: 600px;
+            max-width: 600px;
         }
+
         /* profile logo */
         .nav-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo-section {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .nav-profile-pic {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid #0077ff;
-        }   
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #0077ff;
+        }
 
+        /* Resume Section */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
 
+        .resume-actions,
+        .resume-preview {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
 
+        .resume-actions:hover,
+        .resume-preview:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.08);
+        }
+
+        .resume-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.6rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+        }
+
+        .resume-text {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .resume-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .resume-frame {
+            width: 100%;
+            height: 700px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: var(--secondary-bg);
+        }
+
+        .resume-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .resume-note p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .resume-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resume-frame {
+                height: 500px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
         <div class="container nav-wrapper">
-            
+
             <!-- Logo Section with Profile Image -->
             <div class="logo-section">
                 <img src="images/logopic.jpg" alt="Abdul Choudhury" class="nav-profile-pic">
@@ -859,12 +951,12 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-wrapper">
-    
+
                 <!-- Profile Image -->
                 <div class="hero-image">
                     <img src="images/profile.jpg" alt="Abdul Choudhury Profile Picture">
                 </div>
-    
+
                 <!-- Hero Content -->
                 <div class="hero-content">
                     <div class="hero-subtitle">Computer Information Systems</div>
@@ -874,14 +966,18 @@
                         Expected Graduation: April 2026
                     </div>
                     <p class="hero-description">
-                        I am a Computer Information Systems student specializing in backend development and data engineering, with hands-on experience building scalable RESTful APIs and optimizing database systems. Through my Java Backend internship at Revature and IT support role at Monroe University, I've developed strong technical skills in Java, Spring Boot, SQL, and Agile methodologies.
+                        I am a Computer Information Systems student specializing in backend development and data
+                        engineering, with hands-on experience building scalable RESTful APIs and optimizing database
+                        systems. Through my Java Backend internship at Revature and IT support role at Monroe
+                        University, I've developed strong technical skills in Java, Spring Boot, SQL, and Agile
+                        methodologies.
                     </p>
                     <div class="cta-buttons">
                         <a href="#contact" class="btn btn-primary">Get In Touch</a>
                         <a href="#projects" class="btn btn-secondary">View My Work</a>
                     </div>
                 </div>
-    
+
             </div>
         </div>
     </section>
@@ -897,16 +993,27 @@
             <div class="about-grid">
                 <div class="about-content fade-in">
                     <p>
-                        My journey into technology began with a fascination for how data drives decision-making in modern businesses. As a Computer Information Systems major at Monroe University, I've cultivated this interest into a focused career path toward data engineering and backend development.
+                        My journey into technology began with a fascination for how data drives decision-making in
+                        modern businesses. As a Computer Information Systems major at Monroe University, I've cultivated
+                        this interest into a focused career path toward data engineering and backend development.
                     </p>
                     <p>
-                        During my Java Backend internship at Revature, I gained invaluable experience developing RESTful APIs using Java and Spring Boot. I implemented test-driven development practices that reduced bug rates by ensuring comprehensive unit test coverage. This role taught me the importance of writing clean, maintainable code and collaborating effectively in a professional development environment.
+                        During my Java Backend internship at Revature, I gained invaluable experience developing RESTful
+                        APIs using Java and Spring Boot. I implemented test-driven development practices that reduced
+                        bug rates by ensuring comprehensive unit test coverage. This role taught me the importance of
+                        writing clean, maintainable code and collaborating effectively in a professional development
+                        environment.
                     </p>
                     <p>
-                        My second internship with the Monroe University IT Department provided a different but equally important perspective on technology infrastructure. This experience strengthened my problem-solving abilities and taught me how to communicate technical concepts clearly to non-technical users a skill that proves invaluable when collaborating across departments.
+                        My second internship with the Monroe University IT Department provided a different but equally
+                        important perspective on technology infrastructure. This experience strengthened my
+                        problem-solving abilities and taught me how to communicate technical concepts clearly to
+                        non-technical users a skill that proves invaluable when collaborating across departments.
                     </p>
                     <p>
-                        I am particularly drawn to data engineering because it combines my strengths in programming, database management, and analytical thinking. I enjoy the challenge of designing efficient data pipelines, optimizing query performance, and ensuring data integrity across systems.
+                        I am particularly drawn to data engineering because it combines my strengths in programming,
+                        database management, and analytical thinking. I enjoy the challenge of designing efficient data
+                        pipelines, optimizing query performance, and ensuring data integrity across systems.
                     </p>
                 </div>
                 <div class="stats-grid fade-in">
@@ -931,6 +1038,52 @@
         </div>
     </section>
 
+    <!-- Resume Section -->
+    <section id="resume">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">For Employers</div>
+                <h2 class="section-title">Resume</h2>
+                <p class="section-description">
+                    Download my resume or view it directly below. This includes my work history with dates, employer
+                    information, and technical skills.
+                </p>
+            </div>
+
+            <div class="resume-grid fade-in">
+                <div class="resume-actions">
+                    <h3 class="resume-title">Download</h3>
+                    <p class="resume-text">
+                        Preferred format for viewing is PDF. A Word version is also available.
+                    </p>
+
+                    <div class="resume-buttons">
+                        <a class="btn btn-primary" href="files/Abdul_Choudhury_Resume.pdf" download>
+                            Download PDF Resume
+                        </a>
+                        <a class="btn btn-secondary" href="files/Abdul_Choudhury_Resume.docx" download>
+                            Download Word Resume
+                        </a>
+                    </div>
+
+                    <!-- <div class="resume-note">
+                        <p><strong>Tip:</strong> Keep both files in a <code>files</code> folder in your project so links
+                            work on GitHub Pages.</p>
+                    </div> -->
+                </div>
+
+                <div class="resume-preview">
+                    <h3 class="resume-title">Preview</h3>
+                    <div class="resume-frame">
+                        <iframe src="files/Abdul_Choudhury_Resume.pdf" title="Abdul Choudhury Resume PDF Preview">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- Experience Section -->
     <section id="experience">
         <div class="container">
@@ -942,15 +1095,21 @@
                 <div class="experience-item fade-in">
                     <div class="experience-card">
                         <h3 class="experience-title">Java Backend Development Intern</h3>
-                        <div class="experience-company">Revature | Remote</div>
+                        <div class="experience-company">Revature (Remote) | February 2025 - April 2025</div>
+
                         <p class="experience-description">
-                            Developed production-ready RESTful APIs and backend services using modern Java frameworks while collaborating with cross-functional teams in an Agile environment.
+                            Developed production-ready RESTful APIs and backend services using modern Java frameworks
+                            while collaborating with cross-functional teams in an Agile environment.
                         </p>
                         <ul class="experience-highlights">
-                            <li>Developed RESTful APIs using Java and Spring Boot to support scalable web applications</li>
-                            <li>Applied test-driven development methodology to ensure code reliability and maintainability</li>
-                            <li>Collaborated with cross-functional teams using Agile workflows to deliver features on schedule</li>
-                            <li>Optimized backend performance through code refactoring and database query improvements</li>
+                            <li>Developed RESTful APIs using Java and Spring Boot to support scalable web applications
+                            </li>
+                            <li>Applied test-driven development methodology to ensure code reliability and
+                                maintainability</li>
+                            <li>Collaborated with cross-functional teams using Agile workflows to deliver features on
+                                schedule</li>
+                            <li>Optimized backend performance through code refactoring and database query improvements
+                            </li>
                             <li>Participated in code reviews and contributed to team knowledge-sharing sessions</li>
                         </ul>
                     </div>
@@ -958,13 +1117,17 @@
                 <div class="experience-item fade-in">
                     <div class="experience-card">
                         <h3 class="experience-title">IT Department Intern</h3>
-                        <div class="experience-company">Monroe University | On-Campus</div>
+                        <div class="experience-company">Monroe University (On-Campus) | January 2026 - Present</div>
+
                         <p class="experience-description">
-                            Provided comprehensive technical support for university technology infrastructure while developing strong problem-solving and communication skills.
+                            Provided comprehensive technical support for university technology infrastructure while
+                            developing strong problem-solving and communication skills.
                         </p>
                         <ul class="experience-highlights">
-                            <li>Provided technical support for classroom technologies including projectors and audio-visual equipment</li>
-                            <li>Troubleshot network connectivity issues to minimize downtime for faculty and students</li>
+                            <li>Provided technical support for classroom technologies including projectors and
+                                audio-visual equipment</li>
+                            <li>Troubleshot network connectivity issues to minimize downtime for faculty and students
+                            </li>
                             <li>Assisted with hardware relocation projects during facility upgrades</li>
                             <li>Documented technical procedures to improve support team efficiency</li>
                             <li>Communicated technical solutions to non-technical stakeholders effectively</li>
@@ -982,7 +1145,8 @@
                 <div class="section-label">My Work</div>
                 <h2 class="section-title">Featured Projects</h2>
                 <p class="section-description">
-                    A collection of academic and professional projects demonstrating my technical capabilities and problem-solving approach.
+                    A collection of academic and professional projects demonstrating my technical capabilities and
+                    problem-solving approach.
                 </p>
             </div>
             <div class="projects-grid">
@@ -993,7 +1157,8 @@
                     </div>
                     <div class="project-body">
                         <p class="project-description">
-                            Full-stack e-commerce web application developed using Agile methodologies with comprehensive database design and project management documentation.
+                            Full-stack e-commerce web application developed using Agile methodologies with comprehensive
+                            database design and project management documentation.
                         </p>
                         <div class="project-tags">
                             <span class="tag">Java</span>
@@ -1012,7 +1177,8 @@
                     </div>
                     <div class="project-body">
                         <p class="project-description">
-                            Designed and normalized a comprehensive relational database applying normalization principles to ensure data integrity and optimal performance.
+                            Designed and normalized a comprehensive relational database applying normalization
+                            principles to ensure data integrity and optimal performance.
                         </p>
                         <div class="project-tags">
                             <span class="tag">SQL</span>
@@ -1030,7 +1196,8 @@
                     </div>
                     <div class="project-body">
                         <p class="project-description">
-                            Comprehensive project plan for enterprise data center migration including risk management, budget allocation, and work breakdown structures.
+                            Comprehensive project plan for enterprise data center migration including risk management,
+                            budget allocation, and work breakdown structures.
                         </p>
                         <div class="project-tags">
                             <span class="tag">Project Charter</span>
@@ -1048,7 +1215,8 @@
                     </div>
                     <div class="project-body">
                         <p class="project-description">
-                            Python-based optimization algorithm solving the plate stacking problem with focus on efficiency and algorithmic thinking.
+                            Python-based optimization algorithm solving the plate stacking problem with focus on
+                            efficiency and algorithmic thinking.
                         </p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
@@ -1058,21 +1226,7 @@
                     </div>
                 </div>
 
-                <div class="project-card fade-in" onclick="openProjectModal('carrental')">
-                    <div class="project-header">
-                        <div class="project-type">Application Development</div>
-                        <h3 class="project-title">Car Rental Application</h3>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Object-oriented application managing vehicle inventory and customer reservations with focus on clean code architecture.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">OOP</span>
-                            <span class="tag">Design Patterns</span>
-                        </div>
-                    </div>
+        
                 </div>
             </div>
         </div>
@@ -1093,7 +1247,8 @@
                     <div class="course-number">Course 01</div>
                     <h3 class="course-title">Advanced Programming</h3>
                     <p class="course-description">
-                        Deep dive into object-oriented programming, data structures, algorithm design, and performance optimization.
+                        Deep dive into object-oriented programming, data structures, algorithm design, and performance
+                        optimization.
                     </p>
                     <a class="course-link">Learn More →</a>
                 </div>
@@ -1102,7 +1257,8 @@
                     <div class="course-number">Course 02</div>
                     <h3 class="course-title">Database Management Systems</h3>
                     <p class="course-description">
-                        Comprehensive training in relational database theory, SQL programming, normalization, and query optimization.
+                        Comprehensive training in relational database theory, SQL programming, normalization, and query
+                        optimization.
                     </p>
                     <a class="course-link">Learn More →</a>
                 </div>
@@ -1111,7 +1267,8 @@
                     <div class="course-number">Course 03</div>
                     <h3 class="course-title">IT Project Management</h3>
                     <p class="course-description">
-                        Methodologies and tools for successfully planning and executing technology projects using Agile and Waterfall frameworks.
+                        Methodologies and tools for successfully planning and executing technology projects using Agile
+                        and Waterfall frameworks.
                     </p>
                     <a class="course-link">Learn More →</a>
                 </div>
@@ -1120,7 +1277,8 @@
                     <div class="course-number">Course 04</div>
                     <h3 class="course-title">Senior Seminar (SmartShop Capstone)</h3>
                     <p class="course-description">
-                        Comprehensive capstone project applying cumulative knowledge to develop a full-stack e-commerce application.
+                        Comprehensive capstone project applying cumulative knowledge to develop a full-stack e-commerce
+                        application.
                     </p>
                     <a class="course-link">Learn More →</a>
                 </div>
@@ -1129,7 +1287,8 @@
                     <div class="course-number">Course 05</div>
                     <h3 class="course-title">Internship Seminar</h3>
                     <p class="course-description">
-                        Structured reflection on professional internship experiences connecting practical work to academic learning.
+                        Structured reflection on professional internship experiences connecting practical work to
+                        academic learning.
                     </p>
                     <a class="course-link">Learn More →</a>
                 </div>
@@ -1205,7 +1364,10 @@
                 <div class="section-label">Get In Touch</div>
                 <h2 class="section-title">Let's Connect</h2>
                 <p class="contact-text">
-                    I'm actively seeking full-time opportunities in Data Engineering and Backend Development starting in Spring 2026. If you're looking for a dedicated developer with strong database skills, hands-on API development experience, and a passion for building efficient data systems, I'd welcome the opportunity to discuss how I can contribute to your team.
+                    I'm actively seeking full-time opportunities in Data Engineering and Backend Development starting in
+                    Spring 2026. If you're looking for a dedicated developer with strong database skills, hands-on API
+                    development experience, and a passion for building efficient data systems, I'd welcome the
+                    opportunity to discuss how I can contribute to your team.
                 </p>
                 <div class="cta-buttons">
                     <a href="mailto:choudhuryabdul28@gmail.com" class="btn btn-primary">Send Email</a>
@@ -1577,11 +1739,12 @@
         }
 
         // Close modal when clicking outside
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = 'none';
             }
         }
     </script>
 </body>
+
 </html>
